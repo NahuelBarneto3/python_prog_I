@@ -70,12 +70,21 @@ def obtener_nombre(dictionary:dict) ->str:
 # deberá imprimirlo en la consola. La función no tendrá retorno.
 
 def imprimir_dato(dato:str):
+    '''
+    imprime el dato que le pasas literalmente
+    '''
     print(dato)
 
 #Crear la función 'stark_imprimir_nombres_heroes' la cual recibirá por parámetro la lista de héroes y 
 # deberá imprimirla en la consola. 
 # Reutilizar las funciones hechas en los puntos 1.1 y 1.2. Validar que la lista no esté vacía 
 def stark_imprimir_nombres_heroes(lista:list):
+
+    '''
+    recibe la lista e imprime en consola solo los nombres de la lista
+    tambien valida(por si es necesario despues)
+
+    '''
     retorno = False
     if(type(lista) == type([]) and len(lista) > 0):
         for heroes in lista:
@@ -84,10 +93,28 @@ def stark_imprimir_nombres_heroes(lista:list):
     
     return retorno
 
+#Crear la función 'obtener_nombre_y_dato' la misma recibirá por parámetro un diccionario el
+#  cual representara a un héroe y una key (string) la cual representará el dato que se desea obtener. 
+
+def obtener_nombre_y_dato(dictionary:dict, key:str)-> str:
+    '''
+    recibe el diccionario, que representara al heroe y tambien una key para imprimir el dato del heroe necesitado
+
+
+    El string resultante debe estar formateado de la siguiente manera: (suponiendo que la key es fuerza)
+    Nombre: Venom | fuerza: 500
+    
+    '''
+
+    star_normalizar_datos(lista_personajes)
+
+
+
+
 #star_normalizar_datos(lista_personajes, "peso")
 #obtener_nombre(lista_personajes[5])
 #imprimir_dato("alo")
-stark_imprimir_nombres_heroes(lista_personajes)
+#stark_imprimir_nombres_heroes(lista_personajes)
 
 
 
