@@ -12,7 +12,14 @@ from xml.dom import registerDOMImplementation
             "inteligencia": ""
         },
 '''
+def validar_RegEx(a_validar:str, patron_valicion)-> bool|int:
 
+    respuesta_validada = re.search(patron_valicion, a_validar, re.IGNORECASE)
+    if( respuesta_validada != None):
+        a_validar = a_validar.lower()
+        a_validar = a_validar.replace(" ","")
+        return a_validar
+    else: return False
 
 
 def import_json(url_archivo:str)-> list:
@@ -34,9 +41,9 @@ def validar_respuesta(numero:str)-> bool|int:
         return numero_int
     else: return False    
 #1) Listar los primeros N héroes. El valor de N será ingresado por el usuario  (Validar que no supere max. de lista)
-
+'''
 def listar_personajes(lista_recibida:list, valor_a_recorrer:int)->list:
-    '''
+    
     lista la cantidad de heroes elegidos por el usuario y los devuelve en lista
     RECIBE:
         -la lista a recorrer
@@ -47,7 +54,7 @@ def listar_personajes(lista_recibida:list, valor_a_recorrer:int)->list:
     VALIDA:
         Que el valor recibido no supere len de lista
     
-    '''
+    
     lista_nueva = []
     
 
@@ -63,7 +70,7 @@ def listar_personajes(lista_recibida:list, valor_a_recorrer:int)->list:
     if(len(lista_nueva) > 0):
         return lista_nueva
     else: return False
-    
+'''
 # 2) Ordenar y Listar héroes por altura. Preguntar al usuario si lo quiere ordenar de manera ascendente (‘asc’) o descendente (‘desc’)
 def qsort_asc(lista_a_ordenar:list, key:str)->list:
     lista_recibida = lista_a_ordenar[:]
@@ -126,7 +133,7 @@ def ordenar_por_altura(lista_recibida:list, forma:str)->list:
     '''
     retorno = False
     validar_forma = re.search("asc|desc",forma, re.IGNORECASE)
-    
+       
     if(type(lista_recibida) == list and len(lista_recibida) > 0 and validar_forma != None):
         copia_lista = lista_recibida.copy()
         lista_nueva = []
@@ -270,14 +277,28 @@ def buscar_por_inteligencia(lista_recibida:list, tipo:str)->str:
 # print(test)
 
 # 6) Exportar a CSV la lista de héroes ordenada según opción elegida anteriormente [1-4]
-
-def exportar_CSV(lista_recibida:list, key:str):
+def fun_mostrar(lista_recibida:list, key="altura"): 
+    mensaje = ""
+   
+    for heroe in lista_recibida:
+        mensaje += "{0}, {1}, {2} {3}\n".format(heroe["nombre"],heroe["identidad"],key, heroe[key])
+    return mensaje
+      
+def fun_mostrar_cantidad_especifica(lista_recibida:list):
+    mensaje = ""
+   
+    for heroe in lista_recibida:
+        mensaje += "{0}, {1}, {2}, {3}, {4}, {5}\n".format(heroe["nombre"],heroe["identidad"],heroe["altura"]
+        ,heroe["peso"],heroe["fuerza"],heroe["inteligencia"])
+    return mensaje
+        
+def exportar_CSV(mensaje:str,nombre_archivo:str):
     '''Exportar a CSV la lista de héroes ordenada según opción elegida anteriormente [1-4]'''
+    
+    nombre_final = nombre_archivo + ".csv"
+    with open(nombre_final, "w+") as archivo:
+        archivo.write(mensaje)
 
-    with open("archivo_exp.csv", "w") as archivo:
-        for heroe in lista_recibida:
-            contenido_archivo += "{0},{1}\n".format(heroe["nombre"], heroe[key])
-        archivo.write(contenido_archivo)
 
 
 
