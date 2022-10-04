@@ -61,7 +61,7 @@ def menu_principal():
             print(func.fun_mostrar(func.buscar_por_inteligencia(lista_original,respuesta_tipo),"inteligencia"))
             
         elif(respuesta_validada == 6):
-            nombre_archivo = input("ingrese nombre archivo (sin mayus o espacios)> ")
+            nombre_archivo = input("ingrese nombre archivo > ")
             nombre_archivo_validado = func.validar_RegEx(nombre_archivo,"[a-z]+")
             if(nombre_archivo_validado != False):
                 func.exportar_CSV(msg,nombre_archivo_validado)

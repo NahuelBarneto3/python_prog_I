@@ -116,10 +116,13 @@ def leer_archivo(archivo:str):
 #Crear la función 'guardar_archivo'
 
 def guardar_archivo(nombre_tipo_archivo:str,cont_a_guardar:str)->bool:
+    
     with open(nombre_tipo_archivo, "w+") as archivo:
-        data = archivo.writelines(cont_a_guardar)
-
-    return data
+        archivo.writelines(cont_a_guardar)
+        print("el archivo" + nombre_tipo_archivo + "se creo correctamente")
+    
+    return
+    
 
 test = guardar_archivo("archivo_nuevo.csv", "hola que tal/n como andas")
 print(test)

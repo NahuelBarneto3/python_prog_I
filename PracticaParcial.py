@@ -12,7 +12,7 @@ from xml.dom import registerDOMImplementation
             "inteligencia": ""
         },
 '''
-def validar_RegEx(a_validar:str, patron_valicion)-> bool|int:
+def validar_RegEx(a_validar:str, patron_valicion):
 
     respuesta_validada = re.search(patron_valicion, a_validar, re.IGNORECASE)
     if( respuesta_validada != None):

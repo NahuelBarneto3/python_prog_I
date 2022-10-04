@@ -1,0 +1,12 @@
+
+from pydoc import describe
+import re
+
+def validar_RegEx(a_validar:str, patron_valicion)-> bool|int:
+
+    respuesta_validada = re.match(patron_valicion, a_validar)
+    if( respuesta_validada != None):
+        retorno_validado = respuesta_validada
+        return retorno_validado
+    else: return False   
+
